@@ -14,8 +14,8 @@ cur_month = 0
 diff = 0
 total = 0
 
-print("Financial Analysis")
-print("-----------------------")
+print("Financial Analysis", file=open("output.txt", "a"))
+print("-----------------------", file=open("output.txt", "a"))
 
 with open(filepath, "r", newline="") as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
@@ -30,7 +30,7 @@ with open(filepath, "r", newline="") as csvfile:
             change.update({row[0]:diff})
         past_month = int(row[1])
         
-print("Total Months: " + str(len(d)))
+print("Total Months: " + str(len(d)), file=open("output.txt", "a"))
 
 with open(filepath, "r", newline="") as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
@@ -38,33 +38,33 @@ with open(filepath, "r", newline="") as csvfile:
     for row in csvreader:
         total += int(row[1])
         
-print("Total: $" + str(total))
+print("Total: $" + str(total), file=open("output.txt", "a"))
 
 avg_total = 0
 for key, value in change.items():
     avg_total += value
     
-print("Average Change: $" + str(round(avg_total/85, 2)))
+print("Average Change: $" + str(round(avg_total/85, 2)), file=open("output.txt", "a"))
 
 maxvalue = max(change.values())
 for m in change.keys(): 
     if change[m] == maxvalue:
-        print ("Greatest Increase in Profits: " + m + " ($" + str(change[m]) +")")
+        print ("Greatest Increase in Profits: " + m + " ($" + str(change[m]) +")", file=open("output.txt", "a"))
 
 
 minvalue = min(change.values())
 for k in change.keys(): 
     if change[k] == minvalue:
-        print ("Greatest Decrease in Profits: " + k + " ($" + str(change[k]) +")")
+        print ("Greatest Decrease in Profits: " + k + " ($" + str(change[k]) +")", file=open("output.txt", "a"))
 
-print(" ")
+print(" ", file=open("output.txt", "a"))
         
 # PyPoll
 
 filepath = os.path.join("Resources", "election_data.csv")
 
-print("Election Results")
-print("------------------------")
+print("Election Results", file=open("output.txt", "a"))
+print("------------------------", file=open("output.txt", "a"))
 
 names = []
 
@@ -75,8 +75,8 @@ with open(filepath, "r", newline="") as csvfile:
         names.append(row[2])
         
 total = len(names)
-print("Total Votes: " + str(total))
-print("------------------------")
+print("Total Votes: " + str(total), file=open("output.txt", "a"))
+print("------------------------", file=open("output.txt", "a"))
 
 from collections import Counter
 
@@ -91,13 +91,11 @@ correy = d['Correy']
 li = d['Li']
 otooley = d["O'Tooley"]
 
-print("Khan: " + str(round((khan/total)*100, 3)) + "% (" + str(khan) +")")
-print("Correy: " + str(round((correy/total)*100, 3)) + "% (" + str(correy) +")")
-print("Li: " + str(round((li/total)*100, 3)) + "% (" + str(li) +")")
-print("O'Tooley: " + str(round((otooley/total)*100, 3)) + "% (" + str(otooley) +")")
-print("------------------------")
+print("Khan: " + str(round((khan/total)*100, 3)) + "% (" + str(khan) +")", file=open("output.txt", "a"))
+print("Correy: " + str(round((correy/total)*100, 3)) + "% (" + str(correy) +")", file=open("output.txt", "a"))
+print("Li: " + str(round((li/total)*100, 3)) + "% (" + str(li) +")", file=open("output.txt", "a"))
+print("O'Tooley: " + str(round((otooley/total)*100, 3)) + "% (" + str(otooley) +")", file=open("output.txt", "a"))
+print("------------------------", file=open("output.txt", "a"))
 
-print("Winner: " + max(d2.items(), key = operator.itemgetter(1))[0])
-print("------------------------")
-
-python main.py > results.txt
+print("Winner: " + max(d2.items(), key = operator.itemgetter(1))[0], file=open("output.txt", "a"))
+print("------------------------", file=open("output.txt", "a"))
