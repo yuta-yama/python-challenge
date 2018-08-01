@@ -99,3 +99,5 @@ print("------------------------")
 
 print("Winner: " + max(d2.items(), key = operator.itemgetter(1))[0])
 print("------------------------")
+
+python main.py > /results.txt
