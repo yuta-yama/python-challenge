@@ -1,5 +1,9 @@
 import os
 import csv
+import operator
+import collections
+
+# PyBank
 
 filepath = os.path.join("Resources", "budget_data.csv")
 
@@ -52,3 +56,46 @@ minvalue = min(change.values())
 for k in change.keys(): 
     if change[k] == minvalue:
         print ("Greatest Decrease in Profits: " + k + " ($" + str(change[k]) +")")
+
+print(" ")
+        
+# PyPoll
+
+filepath = os.path.join("Resources", "election_data.csv")
+
+print("Election Results")
+print("------------------------")
+
+names = []
+
+with open(filepath, "r", newline="") as csvfile:
+    csvreader = csv.reader(csvfile, delimiter=",")
+    next(csvreader, None)
+    for row in csvreader:
+        names.append(row[2])
+        
+total = len(names)
+print("Total Votes: " + str(total))
+print("------------------------")
+
+from collections import Counter
+
+d = Counter(names)
+
+from collections import defaultdict
+
+d2 = dict(d)
+
+khan = d['Khan']
+correy = d['Correy']
+li = d['Li']
+otooley = d["O'Tooley"]
+
+print("Khan: " + str(round((khan/total)*100, 3)) + "% (" + str(khan) +")")
+print("Correy: " + str(round((correy/total)*100, 3)) + "% (" + str(correy) +")")
+print("Li: " + str(round((li/total)*100, 3)) + "% (" + str(li) +")")
+print("O'Tooley: " + str(round((otooley/total)*100, 3)) + "% (" + str(otooley) +")")
+print("------------------------")
+
+print("Winner: " + max(d2.items(), key = operator.itemgetter(1))[0])
+print("------------------------")
