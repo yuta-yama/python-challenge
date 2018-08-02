@@ -103,10 +103,10 @@ print("------------------------")
 
 # PRINT TO TEXT FILE
 
-import sys  # Need to have acces to sys.stdout
-fd = open('output.txt','w') # open the result file in write mode
-old_stdout = sys.stdout   # store the default system handler to be able to restore it
-sys.stdout = fd # Now your file is used by print as destination 
+import sys
+fd = open('output.txt','w')
+old_stdout = sys.stdout
+sys.stdout = fd
 
 # PyBank
 
