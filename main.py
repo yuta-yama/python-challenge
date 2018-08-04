@@ -4,7 +4,7 @@ import operator
 import collections
 import sys
 
-# PyBank
+##### PYBANK #####
 
 filepath = os.path.join("Resources", "budget_data.csv")
 
@@ -65,7 +65,8 @@ for k in change.keys():
 
 output(file, " \n")
         
-# PyPoll
+    
+##### PYPOLL #####
 
 filepath = os.path.join("Resources", "election_data.csv")
 
