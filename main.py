@@ -22,7 +22,7 @@ def output(file, output_item):
     file.write(output_item)
 
 output(file, "Financial Analysis \n")
-output(file, "----------------------- \n")
+output(file, "------------------------ \n")
 
 with open(filepath, "r", newline="") as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
